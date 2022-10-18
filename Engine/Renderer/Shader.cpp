@@ -6,7 +6,7 @@ namespace neu
 {
 	Shader::~Shader()
 	{
-		if (m_shader != 0)
+		if (m_shader)
 		{
 			glDeleteShader(m_shader);
 		}
@@ -15,7 +15,7 @@ namespace neu
 
 	bool Shader::Create(std::string filename, ...)
 	{
-		// get shader source from file
+		// Get shader source from file
 		std::string source;
 		bool success = ReadFile(filename, source);
 		if (!success)

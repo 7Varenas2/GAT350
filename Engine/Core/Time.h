@@ -21,7 +21,7 @@ namespace neu
 
 	public:
 		float deltaTime = 0;
-		float time = 0;
+		float time = 5;
 
 	private:
 		clock::time_point m_startTimePoint; // time point at start of application
