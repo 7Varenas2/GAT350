@@ -76,11 +76,10 @@ int main(int argc, char** argv)
 	glm::mat4 model{ 1 };
 	glm::mat4 projection = glm::perspective(45.0f, neu::g_renderer.GetWidth() / (float)neu::g_renderer.GetHeight(), 0.01f, 100.0f);
 
-	glm::vec3 cameraPosition = glm::vec3{ 0, 2, 2 };
-	float speed = 3;
+	glm::vec3 cameraPosition = glm::vec3{ 0, 0, 2 };
+	float speed = 1;
 
 	glm::mat4 mx{ 1 };
-	//float angle = 0;
 	neu::Vector2 position;
 	bool quit = false;
 	while (!quit)
@@ -101,15 +100,22 @@ int main(int argc, char** argv)
 		if (neu::g_inputSystem.GetKeyState(neu::key_space) == neu::InputSystem::KeyState::Held) cameraPosition.z -= speed * neu::g_time.deltaTime;
 		if (neu::g_inputSystem.GetKeyState(neu::key_enter) == neu::InputSystem::KeyState::Held) cameraPosition.z += speed * neu::g_time.deltaTime;
 
-		glm::mat4 view = glm::lookAt(cameraPosition, cameraPosition + glm::vec3{ 0, 0, -1 }, glm::vec3{ 0, 1, 0 }); // Moves 
 		model = glm::eulerAngleXYZ(0.0f, neu::g_time.time, 0.0f); // Rotate model
-		glm::mat4 mvp = projection * view * model;
 		
 		neu::g_renderer.BeginFrame();
-		//material->GetProgram()->SetUniform("scale", std::sin(neu::g_time.time * 3));
-		material->GetProgram()->SetUniform("mvp", mvp);
-		
-		vb->Draw();
+
+		std::vector<neu::Transform> transforms;
+		for (size_t i = 0; i < 4; i++)
+		{
+			// First row is place, second is angle
+			transforms.push_back({ { neu::random(-1,2), neu::random(-1,2), neu::random(-1,2)} ,  {neu::randomf(90), neu::randomf(90), neu::randomf(90)} });
+
+			glm::mat4 view = glm::lookAt(cameraPosition, cameraPosition + glm::vec3{ 0, 0, -1 }, glm::vec3{ 0, 1, 0 }); // Moves 
+			glm::mat4 mvp = projection * view * (glm::mat4)transforms[i];
+			material->GetProgram()->SetUniform("mvp", mvp);
+
+			vb->Draw();
+		}
 
 		neu::g_renderer.EndFrame();
 	}

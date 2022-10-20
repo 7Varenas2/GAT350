@@ -1,6 +1,10 @@
 #pragma once
 #include "Renderer.h"
-#include "Resource/Resource.h"
+#include "VertexBuffer.h"
+#include "Math/MathUtils.h"
+
+#include <assimp/Importer.hpp>
+#include <assimp/scene.h>
 #include <vector>
 #include <string>
 
