@@ -41,8 +41,10 @@ namespace neu
 		int GetWidth() { return m_width; }
 		int GetHeight() { return m_height; }
 
-		void SetViewMatrix(const Matrix3x3& view) { m_view = view; }
-		void SetViewportMatrix(const Matrix3x3& viewport) { m_viewport = viewport; }
+		const glm::mat4& GetView() { return m_view; }
+		void SetView(const glm::mat4& view) { m_view = view; };
+		const glm::mat4& GetProjection() { return m_projection; }
+		void SetProjection(const glm::mat4& projection) { m_projection = projection; }
 
 		friend class Text;
 		friend class Texture;
@@ -53,8 +55,8 @@ namespace neu
 
 		Color m_clearColor{ 0, 0, 0, 255 };
 
-		Matrix3x3 m_view;
-		Matrix3x3 m_viewport;
+		glm::mat4 m_view{ 1 };
+		glm::mat4 m_projection{ 1 };
 
 		SDL_Renderer* m_renderer = nullptr;
 		SDL_Window* m_window = nullptr;
