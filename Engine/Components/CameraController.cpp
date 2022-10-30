@@ -14,6 +14,11 @@ void neu::CameraController::Update()
 
     if (g_inputSystem.GetKeyState(key_down) == InputSystem::KeyState::Held)
         m_owner->m_transform.position.y -= speed * g_time.deltaTime;
+
+    if (g_inputSystem.GetButtonState(button_left) == InputSystem::KeyState::Held)
+        m_owner->m_transform.position.z += speed * g_time.deltaTime;
+    if (g_inputSystem.GetButtonState(button_right) == InputSystem::KeyState::Held)
+        m_owner->m_transform.position.z -= speed * g_time.deltaTime;
 }
 
 

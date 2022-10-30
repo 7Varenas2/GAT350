@@ -12,6 +12,7 @@ namespace neu
 	public:
 		virtual void Draw(Renderer& renderer) = 0;
 
+
 		virtual Rect& GetSource() { return source; }
 		void SetFlipHorizontal(bool flip = true) { flipHorizontal = flip; }
 		bool GetFlipHorizontal() { return flipHorizontal; }

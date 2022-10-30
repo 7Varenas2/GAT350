@@ -10,9 +10,7 @@ namespace neu
         // Calculates the view matrix using the glm::LookAt(). 
         // The actor transfor posiiton is used for the eye and the position plus the transform
         // forward the target position.
-
         m_view = glm::lookAt(m_owner->m_transform.position, m_owner->m_transform.position + m_owner->m_transform.getForward(), glm::vec3{ 0, 1, 0 });
-
 
     }
 

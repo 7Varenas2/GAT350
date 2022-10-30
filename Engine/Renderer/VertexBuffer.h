@@ -18,7 +18,7 @@ namespace neu
 		void SetAttribute(int index, GLint size, GLsizei stride, size_t offset);
 
 		// Index Buffer
-		void CreateindexBuffer(GLenum indexType, GLsizei count, void* data);
+		void CreateIndexBuffer(GLenum indexType, GLsizei count, void* data);
 
 		virtual void Draw(GLenum primitiveType = GL_TRIANGLES);
 

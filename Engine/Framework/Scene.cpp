@@ -40,6 +40,10 @@ namespace neu
 		// Draw actors
 		for (auto& actor : m_actors)
 		{
+			if (actor->GetName() == "Ogre")
+			{
+				//__debugbreak();
+			}
 			actor->Draw(renderer);
 		}
 	}
@@ -55,6 +59,24 @@ namespace neu
 		for (auto& actor : m_actors) { actor->SetDestroy(); }
 
 		m_actors.clear();
+	}
+
+
+	bool Scene::Create(std::string filename, ...)
+	{
+		// Load Scene
+		rapidjson::Document document;
+		bool success = neu::json::Load(filename, document);
+		if (!success)
+		{
+			LOG("Error loading scene file %s.", filename);
+			return false;
+		}
+
+		Read(document);
+		Initialize();
+		
+		return true;
 	}
 
 	bool Scene::Write(const rapidjson::Value& value) const

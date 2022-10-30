@@ -29,13 +29,13 @@ namespace neu
 		std::string model_name;
 		READ_DATA(value, model_name);
 
-		model = g_resources.Get<Model>(model_name);
+		model = g_resources.Get<neu::Model>(model_name);
 
 		// Read material name
 		std::string material_name;
 		READ_DATA(value, material_name);
 		// Get material from material name
-		material = g_resources.Get<Material>(material_name);
+		material = g_resources.Get<neu::Material>(material_name);
 
 
 		return true;

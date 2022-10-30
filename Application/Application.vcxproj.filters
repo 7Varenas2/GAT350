@@ -35,5 +35,29 @@
     <None Include="..\Build\Assets\Scenes\basic.scn">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="..\Build\Assets\Shaders\basic_lit.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\basic_lit.prog">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\basic_lit.vert">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Build\Assets\Materials\ogre.mtrl">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Build\Assets\Scenes\basic_lit.scn">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\basic_phong.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\basic_phong.prog">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\basic_phong.vert">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -39,14 +39,14 @@
         ],
         "rotation": [
           0,
-          180,
+          0,
           0
         ]
       },
       "components": [
         {
           "type": "CameraComponent",
-          "fov": 45,
+          "fov": 85,
           "near": 0.1,
           "far": 100
         },

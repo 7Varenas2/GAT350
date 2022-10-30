@@ -55,13 +55,13 @@ namespace neu
 
 	void Renderer::BeginFrame()
 	{
-		glClearColor(0, 0, 0, 1); // GL does rgb by 1, not 255
+		glClearColor(0.56, 0, 0.80, 0); // GL does rgb by 1, not 255
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	}
 
 	void Renderer::EndFrame()
 	{
-
+		
 		SDL_GL_SwapWindow(m_window);
 	}
 
@@ -91,19 +91,19 @@ namespace neu
 
 	void Renderer::Draw(std::shared_ptr<Texture> texture, const Vector2& position, float angle, const Vector2& scale, const Vector2& registration)
 	{
-		Vector2 size = texture->GetSize();
-		size = size * scale;
+		//Vector2 size = texture->GetSize();
+		//size = size * scale;
 
-		Vector2 origin = size * registration;
-		Vector2 tposition = position - origin;
+		//Vector2 origin = size * registration;
+		//Vector2 tposition = position - origin;
 
-		SDL_Rect dest;
-		dest.x = (int)(tposition.x);
-		dest.y = (int)(tposition.y);
-		dest.w = (int)(size.x);
-		dest.h = (int)(size.y);
+		//SDL_Rect dest;
+		//dest.x = (int)(tposition.x);
+		//dest.y = (int)(tposition.y);
+		//dest.w = (int)(size.x);
+		//dest.h = (int)(size.y);
 
-		SDL_Point center{ (int)origin.x, (int)origin.y };
+		//SDL_Point center{ (int)origin.x, (int)origin.y };
 				
 		
 	}

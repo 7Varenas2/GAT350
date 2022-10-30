@@ -1,4 +1,5 @@
 #include "RenderComponent.h"
+#include "Engine.h"
 
 
 namespace neu
@@ -10,7 +11,7 @@ namespace neu
 
     bool RenderComponent::Read(const rapidjson::Value& value)
     {
-        READ_DATA(value, sort_order);
+        //READ_DATA(value, sort_order);
 
         return true;
     }

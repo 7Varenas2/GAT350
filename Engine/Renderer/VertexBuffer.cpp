@@ -34,7 +34,7 @@ namespace neu
 		glVertexAttribPointer(index, size, GL_FLOAT, GL_FALSE, stride, (void*)(offset));
 	}
 
-	void VertexBuffer::CreateindexBuffer(GLenum indexType, GLsizei count, void* data)
+	void VertexBuffer::CreateIndexBuffer(GLenum indexType, GLsizei count, void* data)
 	{
 		m_indexType = indexType;
 		m_indexCount = count;

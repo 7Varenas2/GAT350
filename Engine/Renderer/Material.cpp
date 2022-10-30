@@ -30,9 +30,7 @@ namespace neu
 
 		// Read colors 
 		
-		READ_DATA(document, ambient);
-		READ_DATA(document, diffuse);
-		READ_DATA(document, specular);
+		READ_DATA(document, color);
 		READ_DATA(document, shininess);
 
 		return true;
@@ -41,6 +39,9 @@ namespace neu
 	void Material::Bind()
 	{
 		m_program->Use();
+		m_program->SetUniform("material.color", color);
+		m_program->SetUniform("material.shininess", shininess);
+
 		for (auto& texture : m_textures)
 		{
 			texture->Bind();
