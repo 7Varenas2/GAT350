@@ -48,7 +48,6 @@ namespace neu
 	void VertexBuffer::Draw(GLenum primitiveType)
 	{
 		glBindVertexArray(m_vao);
-		glDrawArrays(primitiveType, 0, m_vertexCount);
 
 		if (m_ibo)
 		{
@@ -58,6 +57,5 @@ namespace neu
 		{
 			glDrawArrays(primitiveType, 0, m_vertexCount);
 		}
-
 	}
 }

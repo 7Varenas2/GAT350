@@ -55,7 +55,7 @@ namespace neu
 
 	void Renderer::BeginFrame()
 	{
-		glClearColor(0.56, 0, 0.80, 0); // GL does rgb by 1, not 255
+		glClearColor(1, 1, 1, 0); // GL does rgb by 1, not 255
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	}
 

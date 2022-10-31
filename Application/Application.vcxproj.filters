@@ -13,6 +13,15 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Resource Files\Materials">
+      <UniqueIdentifier>{e8451429-42a1-4b31-b972-808c6514d5e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Lit">
+      <UniqueIdentifier>{00484463-251c-487e-8ee0-1386c702360e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Phong">
+      <UniqueIdentifier>{68169334-d580-480e-a9af-a0d2b20419f3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -29,35 +38,47 @@
     <None Include="..\Build\Assets\Shaders\basic.prog">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="..\Build\Assets\Materials\box.mtrl">
-      <Filter>Resource Files</Filter>
-    </None>
     <None Include="..\Build\Assets\Scenes\basic.scn">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="..\Build\Assets\Shaders\basic_lit.frag">
-      <Filter>Resource Files</Filter>
+    <None Include="..\Build\Assets\Materials\box.mtrl">
+      <Filter>Resource Files\Materials</Filter>
     </None>
-    <None Include="..\Build\Assets\Shaders\basic_lit.prog">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="..\Build\Assets\Shaders\basic_lit.vert">
-      <Filter>Resource Files</Filter>
+    <None Include="..\Build\Assets\Materials\cow.mtrl">
+      <Filter>Resource Files\Materials</Filter>
     </None>
     <None Include="..\Build\Assets\Materials\ogre.mtrl">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\Materials</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\basic_lit.frag">
+      <Filter>Resource Files\Lit</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\basic_lit.prog">
+      <Filter>Resource Files\Lit</Filter>
     </None>
     <None Include="..\Build\Assets\Scenes\basic_lit.scn">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\Lit</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\basic_lit.vert">
+      <Filter>Resource Files\Lit</Filter>
     </None>
     <None Include="..\Build\Assets\Shaders\basic_phong.frag">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\Phong</Filter>
     </None>
     <None Include="..\Build\Assets\Shaders\basic_phong.prog">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\Phong</Filter>
     </None>
     <None Include="..\Build\Assets\Shaders\basic_phong.vert">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\Phong</Filter>
+    </None>
+    <None Include="..\Build\Assets\Materials\island.mtrl">
+      <Filter>Resource Files\Materials</Filter>
+    </None>
+    <None Include="..\Build\Assets\Materials\dragon_.mtrl">
+      <Filter>Resource Files\Materials</Filter>
+    </None>
+    <None Include="..\Build\Assets\Materials\knight_.mtrl">
+      <Filter>Resource Files\Materials</Filter>
     </None>
   </ItemGroup>
 </Project>
