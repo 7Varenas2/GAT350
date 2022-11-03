@@ -80,5 +80,20 @@
     <None Include="..\Build\Assets\Materials\knight_.mtrl">
       <Filter>Resource Files\Materials</Filter>
     </None>
+    <None Include="..\Build\Assets\Scenes\texture.scn">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\basic_phong_texture.vert">
+      <Filter>Resource Files\Phong</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\basic_phong_texture.frag">
+      <Filter>Resource Files\Phong</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\basic_phong_texture.prog">
+      <Filter>Resource Files\Phong</Filter>
+    </None>
+    <None Include="..\Build\Assets\Materials\multi.mtrl">
+      <Filter>Resource Files\Materials</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -20,9 +20,9 @@ namespace neu
 		m_program = neu::g_resources.Get<neu::Program>(program);
 
 		// Get program resource
-		std::string texture;
-		READ_DATA(document, texture);
-		if (!texture.empty())
+		std::vector<std::string> textures;
+		READ_DATA(document, textures);
+		for(auto texture : textures)
 		{
 			// Get texture resource
 			m_textures.push_back(neu::g_resources.Get<neu::Texture>(texture));
@@ -33,6 +33,10 @@ namespace neu
 		READ_DATA(document, color);
 		READ_DATA(document, shininess);
 
+		// Read UVs
+		READ_DATA(document, uv_tiling);
+		READ_DATA(document, uv_offset);
+
 		return true;
 	}
 
@@ -41,10 +45,13 @@ namespace neu
 		m_program->Use();
 		m_program->SetUniform("material.color", color);
 		m_program->SetUniform("material.shininess", shininess);
+		m_program->SetUniform("material.uv_tiling", uv_tiling);
+		m_program->SetUniform("material.uv_offset", uv_offset);
 
-		for (auto& texture : m_textures)
+		for (size_t i = 0; i < m_textures.size(); i++)
 		{
-			texture->Bind();
+			m_textures[i]->SetActive(GL_TEXTURE0 + (int)i);
+			m_textures[i]->Bind();
 		}
 	}
 }

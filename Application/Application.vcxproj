@@ -148,9 +148,11 @@
     <None Include="..\Build\Assets\Materials\dragon_.mtrl" />
     <None Include="..\Build\Assets\Materials\island.mtrl" />
     <None Include="..\Build\Assets\Materials\knight_.mtrl" />
+    <None Include="..\Build\Assets\Materials\multi.mtrl" />
     <None Include="..\Build\Assets\Materials\ogre.mtrl" />
     <None Include="..\Build\Assets\Scenes\basic.scn" />
     <None Include="..\Build\Assets\Scenes\basic_lit.scn" />
+    <None Include="..\Build\Assets\Scenes\texture.scn" />
     <None Include="..\Build\Assets\Shaders\basic.frag" />
     <None Include="..\Build\Assets\Shaders\basic.prog" />
     <None Include="..\Build\Assets\Shaders\basic.vert" />
@@ -160,13 +162,16 @@
     <None Include="..\Build\Assets\Shaders\basic_phong.frag" />
     <None Include="..\Build\Assets\Shaders\basic_phong.prog" />
     <None Include="..\Build\Assets\Shaders\basic_phong.vert" />
+    <None Include="..\Build\Assets\Shaders\basic_phong_texture.frag" />
+    <None Include="..\Build\Assets\Shaders\basic_phong_texture.prog" />
+    <None Include="..\Build\Assets\Shaders\basic_phong_texture.vert" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties _1_1_4Build_4Assets_4Scenes_4basic_1scn__JsonSchema="https://docs.strmprivacy.io/jsonschema/BatchJob.json" />
+      <UserProperties _1_1_4Build_4Assets_4Materials_4multi_1mtrl__JsonSchema="https://download.stackhawk.com/hawk/jsonschema/hawkconfig.json" _1_1_4Build_4Assets_4Scenes_4basic_1scn__JsonSchema="https://docs.strmprivacy.io/jsonschema/BatchJob.json" _1_1_4Build_4Assets_4Scenes_4texture_1scn__JsonSchema="https://appsemble.app/api.json" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

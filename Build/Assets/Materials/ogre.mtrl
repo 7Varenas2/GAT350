@@ -1,6 +1,6 @@
 {
-  "program": "shaders/basic_phong.prog",
-  "texture": "textures/ogre_diffuse.bmp",
+  "program": "shaders/basic_phong_texture.prog",
+  "texture": "textures/ogre-diffuse.bmp",
   "color": [
     1,
     1,

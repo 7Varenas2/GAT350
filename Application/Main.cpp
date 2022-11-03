@@ -3,6 +3,8 @@
 
 int main(int argc, char** argv)
 {
+	std::cout << neu::ToLower("HeLLo WorLd") << '\n';
+
 	// DO NOT REMOVE
 	LOG("Application Started...");
 	neu::InitializeMemory();
@@ -16,7 +18,7 @@ int main(int argc, char** argv)
 	LOG("Window Initialized...");
 
 	// Load scene
-	auto scene = neu::g_resources.Get<neu::Scene>("Scenes/basic_lit.scn");
+	auto scene = neu::g_resources.Get<neu::Scene>("Scenes/texture.scn");
 
 
 	bool quit = false;
@@ -27,11 +29,18 @@ int main(int argc, char** argv)
 		
 		neu::g_renderer.BeginFrame();
 		
-		auto actor = scene->GetActorFromName("Ogre");
+		auto actor = scene->GetActorFromName("Box");
 		if (actor)
 		{
-			actor->m_transform.rotation.y += 90.0f * neu::g_time.deltaTime;
+			actor->m_transform.rotation.y += 30.0f * neu::g_time.deltaTime;
 		}
+
+		//auto material = neu::g_resources.Get<neu::Material>("Materials/multi.mtrl");
+		//if (material)
+		//{
+		//	material->uv_offset.x += neu::g_time.deltaTime;
+		//}
+
 		scene->Update();
 		scene->Draw(neu::g_renderer);
 
