@@ -24,11 +24,11 @@ namespace neu
       
     }
 
-    bool CompareIgnoreCase(std::string& str1, std::string& str2)
+    bool CompareIgnoreCase(const std::string& str1, const std::string& str2)
     {
         // If string lengths don't match return false
-        return ((str1.size() == str2.size()) && std::equal(str1.begin(), str1.end(), str2.begin(), [](char& c1, char& c2) 
-            {
+        // Way to fix error was adding const to the char since it was trying to convert (ERROR C2664)
+        return ((str1.size() == str2.size()) && std::equal(str1.begin(), str1.end(), str2.begin(), [](const char & c1, const char & c2) {
             return (c1 == c2 || std::toupper(c1) == std::toupper(c2));
             }));
 

@@ -83,17 +83,26 @@
     <None Include="..\Build\Assets\Scenes\texture.scn">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="..\Build\Assets\Shaders\basic_phong_texture.vert">
-      <Filter>Resource Files\Phong</Filter>
-    </None>
-    <None Include="..\Build\Assets\Shaders\basic_phong_texture.frag">
-      <Filter>Resource Files\Phong</Filter>
-    </None>
-    <None Include="..\Build\Assets\Shaders\basic_phong_texture.prog">
-      <Filter>Resource Files\Phong</Filter>
-    </None>
     <None Include="..\Build\Assets\Materials\multi.mtrl">
       <Filter>Resource Files\Materials</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\normal_phong.prog">
+      <Filter>Resource Files\Phong</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\normal_phong.frag">
+      <Filter>Resource Files\Phong</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\normal_phong.vert">
+      <Filter>Resource Files\Phong</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\texture_phong.frag">
+      <Filter>Resource Files\Phong</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\texture_phong.prog">
+      <Filter>Resource Files\Phong</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\texture_phong.vert">
+      <Filter>Resource Files\Phong</Filter>
     </None>
   </ItemGroup>
 </Project>

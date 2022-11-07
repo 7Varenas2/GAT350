@@ -29,17 +29,25 @@ int main(int argc, char** argv)
 		
 		neu::g_renderer.BeginFrame();
 		
-		auto actor = scene->GetActorFromName("Box");
-		if (actor)
-		{
-			actor->m_transform.rotation.y += 30.0f * neu::g_time.deltaTime;
-		}
+		auto actor = scene->GetActorFromName("Ogre");
+		//if (actor)
+		//{
+		//	actor->m_transform.rotation.y += 30.0f * neu::g_time.deltaTime;
+		//}
 
 		//auto material = neu::g_resources.Get<neu::Material>("Materials/multi.mtrl");
 		//if (material)
 		//{
 		//	material->uv_offset.x += neu::g_time.deltaTime;
 		//}
+
+		// Move camera around
+		actor = scene->GetActorFromName("Light");
+		if (actor)
+		{
+			// move light using sin wave
+			actor->m_transform.position.y = std::sin(neu::g_time.time);
+		}
 
 		scene->Update();
 		scene->Draw(neu::g_renderer);

@@ -27,6 +27,9 @@ namespace neu
 		void SetActive(GLuint unit) { glActiveTexture(unit); }
 		void Bind() { glBindTexture(m_target, m_texture); }
 
+		// Static because it doesn't rely on any class data
+		static GLenum GetInternalFormat(GLuint format);
+
 		Vector2 GetSize() const;
 
 		friend class Renderer;
