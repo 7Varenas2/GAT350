@@ -22,6 +22,18 @@
     <Filter Include="Resource Files\Phong">
       <UniqueIdentifier>{68169334-d580-480e-a9af-a0d2b20419f3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\Shaders">
+      <UniqueIdentifier>{415219c6-ddc6-4464-a0ba-3bd24b60ca30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Shaders\FX">
+      <UniqueIdentifier>{952febda-96a2-49da-9745-de631d00751e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Shaders\Lit">
+      <UniqueIdentifier>{c23a2175-339a-4fbe-ade2-9c4ed5ca5c0b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Shaders\Unlit">
+      <UniqueIdentifier>{69a2ca52-1b62-49f1-8923-521c33af1165}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -86,23 +98,56 @@
     <None Include="..\Build\Assets\Materials\multi.mtrl">
       <Filter>Resource Files\Materials</Filter>
     </None>
-    <None Include="..\Build\Assets\Shaders\normal_phong.prog">
-      <Filter>Resource Files\Phong</Filter>
+    <None Include="..\Build\Assets\Materials\banana.mtrl">
+      <Filter>Resource Files\Materials</Filter>
     </None>
-    <None Include="..\Build\Assets\Shaders\normal_phong.frag">
-      <Filter>Resource Files\Phong</Filter>
+    <None Include="..\Build\Assets\Scenes\test.scn">
+      <Filter>Resource Files</Filter>
     </None>
-    <None Include="..\Build\Assets\Shaders\normal_phong.vert">
-      <Filter>Resource Files\Phong</Filter>
+    <None Include="..\Build\Assets\Shaders\Unlit\texture.prog">
+      <Filter>Resource Files\Shaders\Unlit</Filter>
     </None>
-    <None Include="..\Build\Assets\Shaders\texture_phong.frag">
-      <Filter>Resource Files\Phong</Filter>
+    <None Include="..\Build\Assets\Shaders\Unlit\color.prog">
+      <Filter>Resource Files\Shaders\Unlit</Filter>
     </None>
-    <None Include="..\Build\Assets\Shaders\texture_phong.prog">
-      <Filter>Resource Files\Phong</Filter>
+    <None Include="..\Build\Assets\Shaders\Unlit\texture.vert">
+      <Filter>Resource Files\Shaders\Unlit</Filter>
     </None>
-    <None Include="..\Build\Assets\Shaders\texture_phong.vert">
-      <Filter>Resource Files\Phong</Filter>
+    <None Include="..\Build\Assets\Shaders\Unlit\texture.frag">
+      <Filter>Resource Files\Shaders\Unlit</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\Unlit\color.frag">
+      <Filter>Resource Files\Shaders\Unlit</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\Unlit\color.vert">
+      <Filter>Resource Files\Shaders\Unlit</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\FX\toon.frag">
+      <Filter>Resource Files\Shaders\FX</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\FX\toon.prog">
+      <Filter>Resource Files\Shaders\FX</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\FX\toon.vert">
+      <Filter>Resource Files\Shaders\FX</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\Lit\texture_normal.frag">
+      <Filter>Resource Files\Shaders\Lit</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\Lit\texture_normal.prog">
+      <Filter>Resource Files\Shaders\Lit</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\Lit\texture_normal.vert">
+      <Filter>Resource Files\Shaders\Lit</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\Lit\texture.frag">
+      <Filter>Resource Files\Shaders\Lit</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\Lit\texture.prog">
+      <Filter>Resource Files\Shaders\Lit</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\Lit\texture.vert">
+      <Filter>Resource Files\Shaders\Lit</Filter>
     </None>
   </ItemGroup>
 </Project>

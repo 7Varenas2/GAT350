@@ -1,0 +1,10 @@
+{
+  "program":"shaders/lit/texture_normal.prog",
+  "texture": [ "textures/banana_diffuse.png", "textures/banana_normal.png" ],
+  "color": [
+    1,
+    1,
+    1
+  ],
+  "shininess":32
+} 

@@ -14,11 +14,11 @@ int main(int argc, char** argv)
 	neu::Engine::Instance().Register();
 	LOG("Engine Initialized...");
 
-	neu::g_renderer.CreateWindow("Neumont", 800, 600);
+	neu::g_renderer.CreateWindow("Neumont", 800, 800);
 	LOG("Window Initialized...");
 
 	// Load scene
-	auto scene = neu::g_resources.Get<neu::Scene>("Scenes/texture.scn");
+	auto scene = neu::g_resources.Get<neu::Scene>("Scenes/test.scn");
 
 
 	bool quit = false;
@@ -29,24 +29,24 @@ int main(int argc, char** argv)
 		
 		neu::g_renderer.BeginFrame();
 		
-		auto actor = scene->GetActorFromName("Ogre");
-		//if (actor)
-		//{
-		//	actor->m_transform.rotation.y += 30.0f * neu::g_time.deltaTime;
-		//}
+		auto actor = scene->GetActorFromName("Banana");
+		if (actor)
+		{
+			actor->m_transform.rotation.y += 30.0f * neu::g_time.deltaTime;
+		}
 
-		//auto material = neu::g_resources.Get<neu::Material>("Materials/multi.mtrl");
-		//if (material)
-		//{
-		//	material->uv_offset.x += neu::g_time.deltaTime;
-		//}
+		auto material = neu::g_resources.Get<neu::Material>("Materials/multi.mtrl");
+		if (material)
+		{
+			//material->uv_offset.x += neu::g_time.deltaTime;
+		}
 
 		// Move camera around
 		actor = scene->GetActorFromName("Light");
 		if (actor)
 		{
-			// move light using sin wave
-			actor->m_transform.position.y = std::sin(neu::g_time.time);
+			// move light using sin (y) wave
+			//actor->m_transform.position.y = std::sin(neu::g_time.time);
 		}
 
 		scene->Update();
