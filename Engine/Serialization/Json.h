@@ -5,6 +5,8 @@
 #include <vector>
 
 #define READ_DATA(value, data) neu::json::Get(value, #data, data)
+// Allow different name instead of converting the data to a name
+//#define READ_DATA(value, name, data) neu::json::Get(value,name,data)
 
 namespace neu
 {

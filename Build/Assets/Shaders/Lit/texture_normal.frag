@@ -1,47 +1,67 @@
 #version 430 core
 
+#define POINT       0
+#define DIRECTIONAL 1
+#define SPOTLIGHT   2
+
 in vec3 position;
 in vec2 texcoord;
 in mat3 tbn;
 
 out vec4 fcolor; // pixel to draw
 
-struct Light
+uniform struct Light
 {
+	int type;
 	vec3 ambient;
 	vec3 color;
-	vec4 position;
-};
+	vec4 position; // Website said not needed
+	vec3 direction;
+	float cutoff;
+	float exponent;
 
-struct Material
+} light;
+
+uniform struct Material
 {
 	vec3 color;
 	float shininess;
 	vec2 uv_tiling;
 	vec2 uv_offset;
-};
- 
-uniform Light light;
-uniform Material material;
+} material;
 
-layout (binding = 0) uniform sampler2D diffuseMap; // Diffuse map
-layout (binding = 1) uniform sampler2D normalMap; // Specular map
-layout (binding = 2) uniform sampler2D immisiveMap; // Immisive map
+layout (binding = 0) uniform sampler2D diffuseMap;
+layout (binding = 1) uniform sampler2D normalMap;
 
 void phong(vec3 position, vec3 normal, out vec3 ambient, out vec3 diffuse, out vec3 specular)
 {
-	// Ambient
+// Ambient
 	ambient = light.ambient * material.color;
 
-	// Calculate light direction (unit vector)
-	vec3 light_dir = normalize(vec3 (light.position) - position);
+	// Light direction willl now be calcualted based on the light type.
+	// If the light type is DIRECTIONAL then the light.direction will be used else it will be the direction vector from the fragment position to the light position
+	// direction vector to light
+	vec3 light_dir = (light.type == DIRECTIONAL) ? normalize(-light.direction) : normalize(vec3(light.position) - position);
 
-	// Calculate light intensity with dot product (normal * light direction)
-	float intensity = max(dot(light_dir, normal),0);
-	diffuse = light.color * material.color * intensity;
+	// if spotlight, compute intensity based on angle to cutoff
+	float spot_intensity = 1;
+	if (light.type == SPOTLIGHT)
+	{
+		// Get cosine of light direction and direction vector from light 
+		float cosine = dot(light.direction, -light_dir);
+		// Get angle using acos() of the cosine (returns the angle)
+		float angle = acos(cosine) ;
+
+		// if angle less than light.cutoff, set spot intensity else set to 0 (outside)
+		spot_intensity = (angle < light.cutoff) ? pow(cosine, light.exponent) : 0;
+
+	}
 
 	// SPECULAR
 	specular = vec3(0);
+	// Calculate light intensity with dot product (normal * light direction)
+	float intensity = max(dot(light_dir, normal),0) * spot_intensity;
+	diffuse = light.color * material.color * intensity;
 	if (intensity > 0)
 	{
 		vec3 reflection = reflect(-light_dir, normal);
@@ -61,8 +81,8 @@ void main()
 	vec3 diffuse;
 	vec3 specular;
 
-	vec3 normal = texture(normalMap, ttexcoord).rgb; // Originally 0 - 1 
-	normal = (normal * 2) - 1; // Currently 0 - 2 , bc of multiplication with 2, but adding - 1 makes its -1 - 1
+	vec3 normal = texture(normalMap, ttexcoord).rgb;  
+	normal = (2 * normal) - vec3(1); 
 	normal = normalize(tbn * normal);
 
 	phong(position, normal, ambient, diffuse, specular);

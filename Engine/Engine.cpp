@@ -10,6 +10,7 @@ namespace neu
 	PhysicsSystem g_physicsSystem;
 	EventManager g_eventManager;
 	CameraController g_cameraController;
+	GUI g_gui;
 
 	void Engine::Initialize()
 	{
@@ -31,6 +32,7 @@ namespace neu
 		g_inputSystem.Shutdown();
 		g_audioSystem.Shutdown();
 		g_renderer.Shutdown();
+		g_gui.Shutdown();
 	}
 
 	void Engine::Update()
@@ -40,6 +42,13 @@ namespace neu
 		g_physicsSystem.Update();
 		g_inputSystem.Update();
 		g_audioSystem.Update();
+		
+		SDL_Event event;
+		while (SDL_PollEvent(&event))
+		{
+			g_gui.Update(event);
+		
+		}
 	}
 
 	void Engine::Register()

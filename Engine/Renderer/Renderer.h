@@ -48,6 +48,7 @@ namespace neu
 
 		friend class Text;
 		friend class Texture;
+		friend class GUI;
 
 	private:
 		int m_width = 0;
