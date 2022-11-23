@@ -5,28 +5,7 @@ namespace neu
 {
 	void LightComponent::Update()
 	{
-		// transform the light position by the view, puts light in model view space
-		glm::vec4 position = g_renderer.GetView() * glm::vec4(m_owner->m_transform.position, 1);
 
-		// Transform forward returns a vector pointing in the forward direction of the light
-		glm::vec3 direction = m_owner->m_transform.getForward();
-
-		// get all programs in the resource system
-		auto programs = g_resources.Get<Program>();
-		// set programs light properties
-		for (auto& program : programs)
-		{
-			program->Use();
-			program->SetUniform("light.type", (int)type);
-			program->SetUniform("light.ambient", glm::vec3{ 0.2f });
-			program->SetUniform("light.color", color);
-			program->SetUniform("light.position", position);
-			// Set uniforms for the light
-			program->SetUniform("light.direction", direction); // not updating
-			program->SetUniform("light.cutoff", glm::radians(cutoff));
-			program->SetUniform("light.exponent", exponent);
-
-		}
 	}
 
 	bool LightComponent::Write(const rapidjson::Value& value) const
@@ -52,10 +31,34 @@ namespace neu
 		{
 			type = Type::Point;
 		}
-		
+
 		READ_DATA(value, color);
 
 		return true;
+	}
+
+	void LightComponent::SetProgram(std::shared_ptr<Program> program, int index)
+	{
+		// transform the light position by the view, puts light in model view space
+		glm::vec4 position = g_renderer.GetView() * glm::vec4(m_owner->m_transform.position, 1);
+
+		// Transform forward returns a vector pointing in the forward direction of the light
+		glm::vec3 direction = m_owner->m_transform.getForward();
+
+		// Create array light name from index
+		std::string lightName = "lights[" + std::to_string(index) + "]";
+
+
+		program->Use();
+		// get all programs in the resource system
+		program->SetUniform(lightName + ".type", (int)type);
+		program->SetUniform(lightName + ".color", color);
+		program->SetUniform(lightName + ".position", position);
+		// Set uniforms for the light
+		program->SetUniform(lightName + ".direction", direction); // not updating
+		program->SetUniform(lightName + ".cutoff", glm::radians(cutoff));
+		program->SetUniform(lightName + ".exponent", exponent);
+
 	}
 
 }

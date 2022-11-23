@@ -3,6 +3,7 @@
 #define POINT       0
 #define DIRECTIONAL 1
 #define SPOTLIGHT   2
+#define MAX_LIGHTS  5
 
 in vec3 position;
 in vec3 normal;
@@ -13,14 +14,14 @@ out vec4 fcolor; // pixel to draw
 uniform struct Light
 {
 	int type;
-	vec3 ambient;
+	
 	vec3 color;
 	vec4 position; // Website said not needed
 	vec3 direction;
 	float cutoff;
 	float exponent;
 
-} light;
+} lights[MAX_LIGHTS];
 
 uniform struct Material
 {
@@ -30,17 +31,14 @@ uniform struct Material
 	vec2 uv_offset;
 } material;
  
-
+uniform int light_count;
+uniform vec3 ambient_color;
 
 layout (binding = 0) uniform sampler2D diffuseMap; // Diffuse map
-//layout (binding = 1) uniform sampler2D specularMap; // Specular map
-//layout (binding = 2) uniform sampler2D immisiveMap; // Immisive map
 
-void phong(vec3 position, vec3 normal, out vec3 ambient, out vec3 diffuse, out vec3 specular)
+// Remobed ambient and now passing in current light in lights
+void phong(Light light, vec3 position, vec3 normal, out vec3 diffuse, out vec3 specular)
 {
-	// Ambient
-	ambient = light.ambient * material.color;
-
 	// Light direction willl now be calcualted based on the light type.
 	// If the light type is DIRECTIONAL then the light.direction will be used else it will be the direction vector from the fragment position to the light position
 	// direction vector to light
@@ -78,18 +76,18 @@ void phong(vec3 position, vec3 normal, out vec3 ambient, out vec3 diffuse, out v
 
 void main()
 {
+	// Initialize color with ambient color
+	fcolor = vec4(ambient_color, 1) * texture(diffuseMap, texcoord);
 
+	// Calculate phong (diffuse, specular) for each light and add to color
+	for (int i = 0; i < light_count; i++)
+	{
+		vec3 diffuse;
+		vec3 specular;
 
-	vec3 ambient;
-	vec3 diffuse;
-	vec3 specular;
-
-	phong(position, normal, ambient, diffuse, specular);
-
-	vec2 ttexcoord = (texcoord * material.uv_tiling) + material.uv_offset;
-
-	vec4 texture_color = texture(diffuseMap, ttexcoord);
+		phong(lights[i], position, normal, diffuse, specular);
+		fcolor += (vec4(diffuse, 1) * texture(diffuseMap, texcoord)) + vec4(specular,1);
+	}
 	//vec4 texture_color = mix(texture(texture1, ttexcoord), texture(texture2, ttexcoord), 0.2);
 
-	fcolor = vec4(ambient + diffuse, 1) * texture_color + vec4(specular,1);
 }

@@ -1,0 +1,10 @@
+{
+  "program": "Shaders/PostProcess/postprocess.prog",
+  "texture": [ "fb_texture" ],
+  "color": [
+    1,
+    1,
+    1
+  ],
+  "shininess": 32
+} 

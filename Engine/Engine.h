@@ -48,6 +48,8 @@
 #include "Renderer/Program.h"
 #include "Renderer/Material.h"
 #include "Renderer/VertexBuffer.h"
+#include "Renderer/Cubemap.h"
+#include "Renderer/Framebuffer.h"
 
 #include <memory>
 #include <vector>
@@ -63,6 +65,7 @@ namespace neu
 	extern ResourceManager g_resources;
 	extern PhysicsSystem g_physicsSystem;
 	extern EventManager g_eventManager;
+
 	extern GUI g_gui;
 	
 	class Engine : public Singleton<Engine>

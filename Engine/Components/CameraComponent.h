@@ -1,8 +1,10 @@
 #pragma once
 #include "Framework/Component.h"
+#include "Renderer/Program.h"
 
 namespace neu
 {
+	class Program;
 	class CameraComponent : public Component
 	{
 	public:
@@ -17,6 +19,8 @@ namespace neu
 
 		virtual bool Write(const rapidjson::Value& value) const override;
 		virtual bool Read(const rapidjson::Value& value) override;
+
+		void SetProgram(std::shared_ptr<Program> program);
 
 	public:
 		glm::mat4 m_projection{ 1 };

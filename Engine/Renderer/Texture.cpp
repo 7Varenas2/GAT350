@@ -21,14 +21,12 @@ namespace neu
         // va_start - enables access to variadic function arguments
         va_start(args, filename);
 
-        // va_arg - accesses the next variadic function arguments
-        Renderer& renderer = va_arg(args, Renderer);
 
         // va_end - ends traversal of the variadic function arguments
         va_end(args);
 
         // create texture (returns true/false if successful)
-        return Load(filename, renderer);
+        return Load(filename);
     }
 
     bool Texture::CreateFromSurface(SDL_Surface* surface, Renderer& renderer)
@@ -36,7 +34,45 @@ namespace neu
         return true;
     }
 
-    bool Texture::Load(const std::string& filename, Renderer& renderer)
+    bool Texture::CreateTexture(int width, int height)
+    {
+        m_target = GL_TEXTURE_2D;
+        m_width = width;
+        height = height;
+
+        glGenTextures(1, &m_texture);
+        glBindTexture(m_target, m_texture);
+
+        // create texture (width, height)
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, NULL);
+
+        glTexParameteri(m_target, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+        glTexParameteri(m_target, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+        glTexParameteri(m_target, GL_TEXTURE_WRAP_S, GL_CLAMP);
+        glTexParameteri(m_target, GL_TEXTURE_WRAP_T, GL_CLAMP);
+        return true;
+    }
+
+    bool Texture::CreateDepthTexture(int width, int height)
+    {
+        m_target = GL_TEXTURE_2D;
+        m_width = width;
+        height = height;
+
+        glGenTextures(1, &m_texture);
+        glBindTexture(m_target, m_texture);
+
+        // create texture (width, height)
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT, width, height, 0, GL_DEPTH_COMPONENT, GL_FLOAT, NULL);
+
+        glTexParameteri(m_target, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+        glTexParameteri(m_target, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+        glTexParameteri(m_target, GL_TEXTURE_WRAP_S, GL_CLAMP);
+        glTexParameteri(m_target, GL_TEXTURE_WRAP_T, GL_CLAMP);
+        return true;
+    }
+
+    bool Texture::Load(const std::string& filename)
     {
         // load surface
         // !! call IMG_Load with c-string of filename
@@ -46,7 +82,7 @@ namespace neu
             LOG(SDL_GetError());
             return false;
         }
-        //FlipSurface(surface);
+        FlipSurface(surface);
 
 // create texture
         glGenTextures(1, &m_texture);
@@ -97,9 +133,9 @@ namespace neu
         return internalFormat;
     }
 
-    neu::Vector2 Texture::GetSize() const
+    glm::ivec2 Texture::GetSize() const
     {       
-        return Vector2{ 0, 0 };
+        return glm::ivec2{ m_width, m_height };
     }
 
     void Texture::FlipSurface(SDL_Surface* surface)

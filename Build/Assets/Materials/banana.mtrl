@@ -1,6 +1,6 @@
 {
   "program":"shaders/lit/texture.prog",
-  "texture": [ "textures/banana_diffuse.png", "textures/banana_normal.png" ],
+  "texture": [ "textures/banana_normal.png", "textures/banana_diffuse.png" ],
   "color": [
     1,
     1,

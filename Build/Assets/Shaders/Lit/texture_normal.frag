@@ -90,5 +90,5 @@ void main()
 	vec4 texture_color = texture(diffuseMap, ttexcoord);
 
 	//fcolor = texture_color; // No Lighting
-	fcolor = vec4(ambient + diffuse, 1) * texture_color + vec4(specular,1); // Lighting
+	fcolor += vec4(ambient + diffuse, 1) * texture_color + vec4(specular,1); // Lighting
 }

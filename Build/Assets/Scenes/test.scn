@@ -1,4 +1,6 @@
 {
+  "clear_color": [ 1, 1, 1 ],
+  "ambient_color": [ 1.0, 1.0, 1.0 ],
   "actors": [
     {
       "type": "Actor",
@@ -10,13 +12,13 @@
           0
         ],
         "scale": [
-          1,
-          1,
-          1
+          0.5,
+          0.5,
+          0.5
         ],
         "rotation": [
           0,
-          90,
+          0,
           0
         ]
       },
@@ -31,11 +33,12 @@
     {
       "type": "Actor",
       "name": "Light",
+      "active": true,
       "transform": {
         "position": [
-          0,
-          5,
-          5
+          2,
+          -2,
+          2
         ],
         "rotation": [
           0,
@@ -48,10 +51,35 @@
           "type": "LightComponent",
           "color": [
             1,
-            1,
+            0,
             1
           ],
           "type_name": "directional",
+          "cutoff": 20.0,
+          "exponent": 10.0
+        }
+      ]
+    },
+    {
+      "type": "Actor",
+      "name": "Light2",
+      "active":  true,
+      "transform": {
+        "position": [
+          -2,
+          2,
+          -2
+        ]
+      },
+      "components": [
+        {
+          "type": "LightComponent",
+          "color": [
+            0,
+            1,
+            0
+          ],
+          "type_name": "point",
           "cutoff": 20.0,
           "exponent": 10.0
         }
