@@ -5,29 +5,30 @@
 
 int main(int argc, char** argv)
 {
-	std::cout << neu::ToLower("HeLLo WorLd") << '\n';
+	//std::cout << neu::ToLower("HeLLo WorLd") << '\n'; // rlm <- remove
 
 	// DO NOT REMOVE
 	LOG("Application Started...");
 	neu::InitializeMemory();
 	neu::SetFilePath("../Assets");
-	 
+
 	neu::Engine::Instance().Initialize();
 	neu::Engine::Instance().Register();
 	LOG("Engine Initialized...");
 
-	neu::g_renderer.CreateWindow("Neumont", 800, 800);
+	neu::g_renderer.CreateWindow("Neumont", 800, 600); // rlm <- strange screen size (was 800x800)
 	LOG("Window Initialized...");
 	neu::g_gui.Initialize(neu::g_renderer);
 
 	// Create framebuffer texture
 	auto texture = std::make_shared<neu::Texture>();
-	texture->CreateTexture(64, 64);
+	texture->CreateTexture(1024, 1024); // rlm <- (512,512) == original, (64, 64) == Blurry, (1024, 1024) color filters 
 	neu::g_resources.Add<neu::Texture>("fb_texture", texture);
-	
+
 	// Create framebuffer
 	auto framebuffer = neu::g_resources.Get<neu::Framebuffer>("framebuffer", "fb_texture");
 	framebuffer->Unbind();
+
 
 	// Load scene
 	auto scene = neu::g_resources.Get<neu::Scene>("Scenes/postprocess.scn");
@@ -38,15 +39,50 @@ int main(int argc, char** argv)
 
 	float refractiveIndex = 1.0;
 	float interpolation = 1.0;
+
+	// rlm <- was setting skybox inactive
+	//{
+	//	auto actor = scene->GetActorFromName("Skybox");
+	//	if (actor)
+	//	{
+	//		actor->SetActive(false);
+	//	}
+	//}
+	//{
+	//	auto actor = scene->GetActorFromName("Banana");
+	//	if (actor)
+	//	{
+	//		actor->SetActive(true);
+	//	}
+	//}
+
 	while (!quit)
 	{
 		neu::Engine::Instance().Update();
 		neu::g_gui.BeginFrame(neu::g_renderer);
 
 		if (neu::g_inputSystem.GetKeyState(neu::key_escape) == neu::InputSystem::KeyState::Pressed) quit = true;
-		
+
+		neu::g_renderer.BeginFrame();
+		//rlm <- render passes need to be done in loop
+		// Render pass 1 (render to framebuffer)
+		neu::g_renderer.SetViewport(0, 0, framebuffer->GetSize().x, framebuffer->GetSize().y);
+		framebuffer->Bind();
 		neu::g_renderer.BeginFrame();
 
+
+		// Render pass 2 (render to screen)
+		neu::g_renderer.RestoreViewport();
+		neu::g_renderer.BeginFrame();
+		// Used for wave filter
+		auto program = neu::g_resources.Get<neu::Program>("shaders/postprocess.prog");
+		if (program)
+		{
+			program->Use();
+			program->SetUniform("fcolor", neu::g_time.time);
+		}
+
+		// rlm -> keep commeted out unless using refraction/reflection shaders
 		//auto program = neu::g_resources.Get<neu::Program>("shaders/fx/refraction.prog");
 		//if (program)
 		//{
@@ -54,22 +90,19 @@ int main(int argc, char** argv)
 		//	program->SetUniform("interp", interpolation);
 		//	program->SetUniform("refractiveIndex", refractiveIndex);
 		//}
-		
-		auto actor = scene->GetActorFromName("Skybox");
-		if (actor)
-		{
-			actor->m_transform.rotation = math::EulerToQuaternion(rot);
-		}
 
+
+		// rlm <- removed (don't want to rotate skybox)
+		//auto actor = scene->GetActorFromName("Skybox");
+		//if (actor)
+		//{
+		//	actor->m_transform.rotation = math::EulerToQuaternion(rot);
+		//}
+
+		// rlm <- removed (no need to get lights)
 		// Move camera around
-		actor = scene->GetActorFromName("Light");
-		actor = scene->GetActorFromName("Light2");
-		if (actor)
-		{
-			// move light using sin (y) wave
-			/*actor->m_transform.position = rot;*/
-		}
-
+		//actor = scene->GetActorFromName("Light");
+		//actor = scene->GetActorFromName("Light2");
 
 		ImGui::Begin("Hola!");
 		//ImGui::Button("Press Me!");
@@ -80,35 +113,9 @@ int main(int argc, char** argv)
 
 		scene->Update();
 
-		{
-			auto actor = scene->GetActorFromName("Skybox");
-			if (actor)
-			{
-				actor->SetActive(false);
-			}
-		}
-
-		// Render pass 1 (render to framebuffer)
-		neu::g_renderer.SetViewport(0, 0, framebuffer->GetSize().x, framebuffer->GetSize().y);
-		framebuffer->Bind();
-		neu::g_renderer.BeginFrame();
-
-		{
-			auto actor = scene->GetActorFromName("Banana");
-			if (actor)
-			{
-				actor->SetActive(true);
-			}
-		}
-
-		// Render pass 2 (render to screen)
-		neu::g_renderer.RestoreViewport();
-		neu::g_renderer.BeginFrame();
-
 		//POST PROCESS
 #ifdef POST_PROCESS
 		// Dont draw post process actor when rendering to the framebuffer
-  // don't draw post process actor when rendering to the framebuffer 
 		{
 			auto actor = scene->GetActorFromName("PostProcess");
 			if (actor)
@@ -139,13 +146,21 @@ int main(int argc, char** argv)
 			}
 		}
 #else 
+		// Render pass 1 (render to framebuffer)
+		neu::g_renderer.SetViewport(0, 0, framebuffer->GetSize().x, framebuffer->GetSize().y);
+		framebuffer->Bind();
+		neu::g_renderer.BeginFrame();
+		scene->PreRender(neu::g_renderer);
+		scene->Render(neu::g_renderer);
+		framebuffer->Unbind();
+
+		// Render pass 2 (render to screen)
+		neu::g_renderer.RestoreViewport();
 		neu::g_renderer.BeginFrame();
 		scene->PreRender(neu::g_renderer);
 		scene->Render(neu::g_renderer);
 #endif // POST_PROCESS 
 		// Working till Main additions
-
-
 
 		neu::g_gui.Draw();
 

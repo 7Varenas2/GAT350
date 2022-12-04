@@ -56,11 +56,11 @@ namespace neu
 		glm::vec3 clear_color{ 1,0,0 };
 		glm::vec3 ambient_color{ 0,0,0 };
 
-	private:
 		int width = 800;
 		int height = 600;
 		bool fullscreen = false;
 
+	private:
 		glm::mat4 m_view{ 1 };
 		glm::mat4 m_projection{ 1 };
 

@@ -1,8 +1,8 @@
 {
   "clear_color": [
-    1,
-    1,
-    1
+    0,
+    0,
+    0
   ],
   "ambient_color": [
     0.2,
@@ -44,8 +44,8 @@
       "name": "PostProcess",
       "transform": {
         "position": [
-          3,
-          2,
+          0,
+          0,
           0
         ],
         "scale": [
@@ -68,8 +68,8 @@
       "transform": {
         "position": [
           0,
-          0,
-          0
+          -2,
+          -4
         ],
         "scale": [
           1,
@@ -112,7 +112,7 @@
           "type": "LightComponent",
           "color": [
             1,
-            0,
+            1,
             1
           ],
           "type_name": "directional",
@@ -136,9 +136,9 @@
         {
           "type": "LightComponent",
           "color": [
-            0,
             1,
-            0
+            1,
+            1
           ],
           "type_name": "point",
           "cutoff": 20.0,

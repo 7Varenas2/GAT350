@@ -9,7 +9,6 @@ uniform mat4 projection;
  
 void main()
 {
-
 	texcoord = vposition;
 
 	mat4 vp = projection * mat4(mat3(view)); // Model is breaking or not showing when multiplied

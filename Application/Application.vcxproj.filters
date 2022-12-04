@@ -59,9 +59,6 @@
     <None Include="..\Build\Assets\Scenes\basic.scn">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="..\Build\Assets\Materials\box.mtrl">
-      <Filter>Resource Files\Materials</Filter>
-    </None>
     <None Include="..\Build\Assets\Materials\cow.mtrl">
       <Filter>Resource Files\Materials</Filter>
     </None>
@@ -99,9 +96,6 @@
       <Filter>Resource Files\Materials</Filter>
     </None>
     <None Include="..\Build\Assets\Materials\multi.mtrl">
-      <Filter>Resource Files\Materials</Filter>
-    </None>
-    <None Include="..\Build\Assets\Materials\banana.mtrl">
       <Filter>Resource Files\Materials</Filter>
     </None>
     <None Include="..\Build\Assets\Shaders\Unlit\texture.prog">
@@ -200,9 +194,6 @@
     <None Include="..\Build\Assets\Scenes\rtt.scn">
       <Filter>Resource Files\Scenes</Filter>
     </None>
-    <None Include="..\Build\Assets\Materials\rtt.mtrl">
-      <Filter>Resource Files\Materials</Filter>
-    </None>
     <None Include="..\Build\Assets\Shaders\PostProcess\postprocess.prog">
       <Filter>Resource Files\Shaders\PostProcess</Filter>
     </None>
@@ -212,11 +203,20 @@
     <None Include="..\Build\Assets\Shaders\PostProcess\postprocess.frag">
       <Filter>Resource Files\Shaders\PostProcess</Filter>
     </None>
+    <None Include="..\Build\Assets\Scenes\postprocess.scn">
+      <Filter>Resource Files\Scenes</Filter>
+    </None>
+    <None Include="..\Build\Assets\Materials\banana.mtrl">
+      <Filter>Resource Files\Materials</Filter>
+    </None>
     <None Include="..\Build\Assets\Materials\postprocess.mtrl">
       <Filter>Resource Files\Materials</Filter>
     </None>
-    <None Include="..\Build\Assets\Scenes\postprocess.scn">
-      <Filter>Resource Files\Scenes</Filter>
+    <None Include="..\Build\Assets\Materials\box.mtrl">
+      <Filter>Resource Files\Materials</Filter>
+    </None>
+    <None Include="..\Build\Assets\Materials\rtt.mtrl">
+      <Filter>Resource Files\Materials</Filter>
     </None>
   </ItemGroup>
 </Project>

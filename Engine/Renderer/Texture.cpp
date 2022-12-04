@@ -38,7 +38,7 @@ namespace neu
     {
         m_target = GL_TEXTURE_2D;
         m_width = width;
-        height = height;
+        m_height = height; // rlm <- height = height; (assigning height to height instead of m_height, makes m_height = 0)
 
         glGenTextures(1, &m_texture);
         glBindTexture(m_target, m_texture);
@@ -48,6 +48,9 @@ namespace neu
 
         glTexParameteri(m_target, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
         glTexParameteri(m_target, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+        // Pixel Filter
+        //glTexParameteri(m_target, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+        //glTexParameteri(m_target, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
         glTexParameteri(m_target, GL_TEXTURE_WRAP_S, GL_CLAMP);
         glTexParameteri(m_target, GL_TEXTURE_WRAP_T, GL_CLAMP);
         return true;

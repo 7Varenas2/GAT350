@@ -1,17 +1,7 @@
 { 
-    "program":"shaders/basic.prog", 
-    "texture":"textures/wood.png", 
-    "ambient":[ 
-        1, 
-        1, 
-        1 
-    ], 
-    "diffuse":[ 
-        1, 
-        1, 
-        1 
-    ], 
-    "specular":[ 
+    "program":"shaders/lit/texture.prog", 
+    "textures":["textures/wood.png"], 
+    "color":[ 
         1, 
         1, 
         1 

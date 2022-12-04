@@ -1,6 +1,6 @@
 {
   "program": "shaders/unlit/texture.prog",
-  "texture": [ "fb_texture" ],
+  "textures": [ "fb_texture" ],
   "color": [
     1,
     1,

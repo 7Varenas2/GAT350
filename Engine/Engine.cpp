@@ -37,18 +37,18 @@ namespace neu
 
 	void Engine::Update()
 	{
+		// rlm <- needs to be before other updates
+		SDL_Event event;
+		while (SDL_PollEvent(&event))
+		{
+			g_gui.Update(event);
+
+		}
 		g_time.Tick();
 		g_eventManager.Update();
 		g_physicsSystem.Update();
 		g_inputSystem.Update();
 		g_audioSystem.Update();
-		
-		SDL_Event event;
-		while (SDL_PollEvent(&event))
-		{
-			g_gui.Update(event);
-		
-		}
 	}
 
 	void Engine::Register()

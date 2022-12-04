@@ -147,7 +147,6 @@
     <None Include="..\Build\Assets\Materials\box.mtrl" />
     <None Include="..\Build\Assets\Materials\cow.mtrl" />
     <None Include="..\Build\Assets\Materials\postprocess.mtrl" />
-    <None Include="..\Build\Assets\Materials\rtt.mtrl" />
     <None Include="..\Build\Assets\Materials\dragon_.mtrl" />
     <None Include="..\Build\Assets\Materials\island.mtrl" />
     <None Include="..\Build\Assets\Materials\knight_.mtrl" />
@@ -155,6 +154,7 @@
     <None Include="..\Build\Assets\Materials\ogre.mtrl" />
     <None Include="..\Build\Assets\Materials\reflection.mtrl" />
     <None Include="..\Build\Assets\Materials\refraction.mtrl" />
+    <None Include="..\Build\Assets\Materials\rtt.mtrl" />
     <None Include="..\Build\Assets\Materials\skybox.mtrl" />
     <None Include="..\Build\Assets\Scenes\basic.scn" />
     <None Include="..\Build\Assets\Scenes\basic_lit.scn" />
