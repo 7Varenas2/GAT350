@@ -1,0 +1,533 @@
+{
+  "clear_color": [
+    0,
+    0,
+    0
+  ],
+  "ambient_color": [
+    0.2,
+    0.2,
+    0.2
+  ],
+  "actors": [
+    {
+      "type": "Actor",
+      "name": "Skybox",
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ]
+      },
+      "components": [
+        {
+          "type": "ModelComponent",
+          "model_name": "Models/cube.obj",
+          "material_name": "Materials/skybox.mtrl",
+          "depth_test": false
+        }
+      ]
+    },
+    {
+      "type": "Actor",
+      "name": "Floor",
+      "transform": {
+        "position": [
+          0,
+          -2,
+          0
+        ],
+        "scale": [
+          100,
+          0,
+          100
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ]
+      },
+      "components": [
+        {
+          "type": "ModelComponent",
+          "model_name": "Models/cube.obj",
+          "material_name": "Materials/box.mtrl",
+          "depth_test": true
+        }
+      ]
+    },
+    {
+      "type": "Actor",
+      "name": "PostProcess",
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "components": [
+        {
+          "type": "ModelComponent",
+          "model_name": "Models/quad.obj",
+          "material_name": "Materials/postprocess.mtrl"
+        }
+      ]
+    },
+    {
+      "type": "Actor",
+      "name": "Giraffe",
+      "transform": {
+        "position": [
+          11,
+          -2,
+          17
+        ],
+        "scale": [
+          0.5,
+          0.5,
+          0.5
+        ],
+        "rotation": [
+          0,
+          90,
+          0
+        ]
+      },
+      "components": [
+        {
+          "type": "ModelComponent",
+          "model_name": "Models/giraffe.glb",
+          "material_name": "Materials/giraffe.mtrl",
+          "depth_test": true
+        }
+      ]
+    },
+    {
+      "type": "Actor",
+      "name": "Tiger",
+      "transform": {
+        "position": [
+          3,
+          -2,
+          1
+        ],
+        "scale": [
+          0.03,
+          0.03,
+          0.03
+        ],
+        "rotation": [
+          0,
+          90,
+          0
+        ]
+      },
+      "components": [
+        {
+          "type": "ModelComponent",
+          "model_name": "Models/tiger.glb",
+          "material_name": "Materials/tiger.mtrl",
+          "depth_test": true
+        }
+      ]
+    },
+    {
+      "type": "Actor",
+      "name": "Lion",
+      "transform": {
+        "position": [
+          0,
+          -2,
+          -4
+        ],
+        "scale": [
+          0.3,
+          0.3,
+          0.3
+        ],
+        "rotation": [
+          0,
+          90,
+          0
+        ]
+      },
+      "components": [
+        {
+          "type": "ModelComponent",
+          "model_name": "Models/lion.glb",
+          "material_name": "Materials/lion.mtrl",
+          "depth_test": true
+        }
+      ]
+    },
+    {
+      "type": "Actor",
+      "name": "Cactus",
+      "transform": {
+        "position": [
+          5,
+          -2,
+          4
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "rotation": [
+          0,
+          90,
+          0
+        ]
+      },
+      "components": [
+        {
+          "type": "ModelComponent",
+          "model_name": "Models/cactus.glb",
+          "material_name": "Materials/cactus.mtrl",
+          "depth_test": true
+        }
+      ]
+    },
+    {
+      "type": "Actor",
+      "name": "Gazebo",
+      "transform": {
+        "position": [
+          25,
+          -2,
+          -30
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "rotation": [
+          0,
+          345,
+          0
+        ]
+      },
+      "components": [
+        {
+          "type": "ModelComponent",
+          "model_name": "Models/gazebo.glb",
+          "material_name": "Materials/gazebo.mtrl",
+          "depth_test": true
+        }
+      ]
+    },
+    {
+      "type": "Actor",
+      "name": "Cactus",
+      "transform": {
+        "position": [
+          -10,
+          -2,
+          -15
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ]
+      },
+      "components": [
+        {
+          "type": "ModelComponent",
+          "model_name": "Models/cactus.glb",
+          "material_name": "Materials/cactus.mtrl",
+          "depth_test": true
+        }
+      ]
+    },
+    {
+      "type": "Actor",
+      "name": "Tree1",
+      "transform": {
+        "position": [
+          -10,
+          -2,
+          4
+        ],
+        "scale": [
+          0.04,
+          0.04,
+          0.04
+        ],
+        "rotation": [
+          270,
+          0,
+          0
+        ]
+      },
+      "components": [
+        {
+          "type": "ModelComponent",
+          "model_name": "Models/palmTree.obj",
+          "material_name": "Materials/palmTree.mtrl",
+          "depth_test": true
+        }
+      ]
+    },
+    {
+      "type": "Actor",
+      "name": "Tree2",
+      "transform": {
+        "position": [
+          20,
+          -2,
+          30
+        ],
+        "scale": [
+          0.04,
+          0.04,
+          0.04
+        ],
+        "rotation": [
+          270,
+          0,
+          0
+        ]
+      },
+      "components": [
+        {
+          "type": "ModelComponent",
+          "model_name": "Models/palmTree.obj",
+          "material_name": "Materials/palmTree.mtrl",
+          "depth_test": true
+        }
+      ]
+    },
+    {
+      "type": "Actor",
+      "name": "Tree3",
+      "transform": {
+        "position": [
+          10,
+          -2,
+          -25
+        ],
+        "scale": [
+          0.04,
+          0.04,
+          0.04
+        ],
+        "rotation": [
+          270,
+          0,
+          0
+        ]
+      },
+      "components": [
+        {
+          "type": "ModelComponent",
+          "model_name": "Models/palmTree.obj",
+          "material_name": "Materials/palmTree.mtrl",
+          "depth_test": true
+        }
+      ]
+    },
+    {
+      "type": "Actor",
+      "name": "Elephant",
+      "transform": {
+        "position": [
+          -20,
+          -2,
+          4
+        ],
+        "scale": [
+          0.5,
+          0.5,
+          0.5
+        ],
+        "rotation": [
+          0,
+          45,
+          0
+        ]
+      },
+      "components": [
+        {
+          "type": "ModelComponent",
+          "model_name": "Models/elephant.glb",
+          "material_name": "Materials/elephant.mtrl",
+          "depth_test": true
+        }
+      ]
+    },
+    {
+      "type": "Actor",
+      "name": "Robin",
+      "transform": {
+        "position": [
+          -7.8,
+          12.2,
+          16.2
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "rotation": [
+          0,
+          45,
+          0
+        ]
+      },
+      "components": [
+        {
+          "type": "ModelComponent",
+          "model_name": "Models/robin.glb",
+          "material_name": "Materials/robin.mtrl",
+          "depth_test": true
+        }
+      ]
+    },
+    {
+      "type": "Actor",
+      "name": "Light",
+      "active": true,
+      "transform": {
+        "position": [
+          2,
+          -4,
+          2
+        ],
+        "rotation": [
+          0,
+          180,
+          0
+        ]
+      },
+      "components": [
+        {
+          "type": "LightComponent",
+          "color": [
+            1,
+            0.5,
+            0
+          ],
+          "type_name": "directional",
+          "cutoff": 20.0,
+          "exponent": 10.0
+        }
+      ]
+    },
+    {
+      "type": "Actor",
+      "name": "Light2",
+      "active": true,
+      "transform": {
+        "position": [
+          2,
+          -4,
+          -6
+        ],
+        "rotation": [
+          0,
+          180,
+          0
+        ]
+      },
+      "components": [
+        {
+          "type": "LightComponent",
+          "color": [
+            0,
+            1,
+            1
+          ],
+          "type_name": "point",
+          "cutoff": 20.0,
+          "exponent": 10.0
+        }
+      ]
+    },
+    {
+      "type": "Actor",
+      "name": "Light3",
+      "active": true,
+      "transform": {
+        "position": [
+          -10,
+          -2,
+          -15
+        ],
+        "rotation": [
+          0,
+          180,
+          0
+        ]
+      },
+      "components": [
+        {
+          "type": "LightComponent",
+          "color": [
+            1,
+            0,
+            1
+          ],
+          "type_name": "spotlight",
+          "cutoff": 20.0,
+          "exponent": 10.0
+        }
+      ]
+    },
+    {
+      "type": "Actor",
+      "name": "Camera",
+      "transform": {
+        "position": [
+          6,
+          3,
+          0
+        ],
+        "rotation": [
+          0,
+          90,
+          0
+        ]
+      },
+      "components": [
+        {
+          "type": "CameraComponent",
+          "fov": 45,
+          "near": 0.1,
+          "far": 100
+        },
+        {
+          "type": "CameraController",
+          "speed": 8,
+          "sensitivity": 0.2
+        }
+      ]
+    }
+  ]
+}

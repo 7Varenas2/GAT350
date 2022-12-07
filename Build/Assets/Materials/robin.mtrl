@@ -1,0 +1,10 @@
+{
+  "program": "Shaders/lit/texture.prog",
+  "textures": [ "textures/robin_diffuse.png", "textures/robin_normal.png", "textures/robin_specular.png" ],
+  "color": [
+    1,
+    1,
+    1
+  ],
+  "shininess": 32
+} 

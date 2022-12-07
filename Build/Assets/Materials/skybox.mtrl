@@ -1,6 +1,6 @@
 {
   "program":"shaders/fx/skybox.prog",
-  "cubemap": "textures/Storforsen4/",
+  "cubemap": "textures/NissiBeach2/",
   "cubemap_extension": ".jpg",
   "color": [
     1,

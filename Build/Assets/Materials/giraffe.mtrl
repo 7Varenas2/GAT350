@@ -1,0 +1,10 @@
+{
+  "program": "Shaders/lit/texture.prog",
+  "textures": [ "textures/giraffe_diffuse.png", "textures/giraffe_normal.png", "textures/giraffe_specular.png" ],
+  "color": [
+    1,
+    1,
+    1
+  ],
+  "shininess": 256
+} 

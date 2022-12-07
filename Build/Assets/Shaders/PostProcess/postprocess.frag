@@ -12,7 +12,7 @@ uniform sampler2D textureMap;
 
 void main()
 {
-	//fcolor = texture(textureMap, texcoord); //original
+	fcolor = texture(textureMap, texcoord); //original
 
 //	vec3 color = texture(textureMap, texcoord).rgb;
 //	// black and white
@@ -22,6 +22,7 @@ void main()
 	// Invert
 //	vec3 color = texture(textureMap, texcoord).rgb;
 //	fcolor = vec4(1.0 - color, 1);
+
 
 	// ScanLine 
 //	vec3 color = texture(textureMap, texcoord).rgb; 
@@ -39,8 +40,8 @@ void main()
 
 	// Extra filter
 	// Get base of white and filter, subtract r and b only and multiply
-	vec3 color = texture(textureMap, texcoord).rgb;
-	float avg = (color.r - color.b) * 3.0 * color.g;
-	fcolor = vec4(vec3(avg), 1);
+//	vec3 color = texture(textureMap, texcoord).rgb;
+//	float avg = (color.r - color.b) * 3.0 * color.g;
+//	fcolor = vec4(vec3(avg), 1);
 
 }

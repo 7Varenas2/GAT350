@@ -1,0 +1,10 @@
+{
+  "program": "Shaders/FX/reflection.prog",
+  "textures": [ "textures/tiger_diffuse.png", "textures/tiger_normal.png", "textures/tiger_specular.png" ],
+  "color": [
+    1,
+    1,
+    1
+  ],
+  "shininess": 32
+} 

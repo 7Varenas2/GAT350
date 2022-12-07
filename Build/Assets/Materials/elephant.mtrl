@@ -1,0 +1,10 @@
+{
+  "program": "Shaders/lit/texture.prog",
+  "textures": [ "textures/elephant_diffuse.png", "textures/elephant_normal.png", "textures/elephant_specular.png" ],
+  "color": [
+    1,
+    1,
+    1
+  ],
+  "shininess": 256
+} 

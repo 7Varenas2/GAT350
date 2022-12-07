@@ -31,7 +31,7 @@ int main(int argc, char** argv)
 
 
 	// Load scene
-	auto scene = neu::g_resources.Get<neu::Scene>("Scenes/postprocess.scn");
+	auto scene = neu::g_resources.Get<neu::Scene>("Scenes/final.scn");
 
 	float x = 0;
 	glm::vec3 rot = glm::vec3{ 0,0,0 };
@@ -83,7 +83,7 @@ int main(int argc, char** argv)
 		}
 
 		// rlm -> keep commeted out unless using refraction/reflection shaders
-		//auto program = neu::g_resources.Get<neu::Program>("shaders/fx/refraction.prog");
+		//auto program = neu::g_resources.Get<neu::Program>("shaders/fx/reflection.prog");
 		//if (program)
 		//{
 		//	program->Use();
@@ -93,16 +93,19 @@ int main(int argc, char** argv)
 
 
 		// rlm <- removed (don't want to rotate skybox)
-		//auto actor = scene->GetActorFromName("Skybox");
-		//if (actor)
-		//{
-		//	actor->m_transform.rotation = math::EulerToQuaternion(rot);
-		//}
+		auto actor = scene->GetActorFromName("Robin");
+		if (actor)
+		{
+			actor->m_transform.rotation = glm::eulerAngleXYZ(0.0f, neu::g_time.time * 10, 0.0f);
+		}
 
-		// rlm <- removed (no need to get lights)
-		// Move camera around
-		//actor = scene->GetActorFromName("Light");
-		//actor = scene->GetActorFromName("Light2");
+		auto actor2 = scene->GetActorFromName("Light3");
+		if (actor2)
+		{
+			actor2->m_transform.rotation = math::EulerToQuaternion(rot);
+		}
+
+		//actor->m_transform.rotation = math::EulerToQuaternion(rot); // Used for GUI
 
 		ImGui::Begin("Hola!");
 		//ImGui::Button("Press Me!");

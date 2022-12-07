@@ -1,0 +1,10 @@
+{
+  "program":"shaders/lit/texture.prog",
+  "textures": [ "textures/cactus_diffuse.png", "textures/cactus_normal.png", "textures/cactus_specular.png" ],
+  "color": [
+    1,
+    1,
+    1
+  ],
+  "shininess":32
+} 
